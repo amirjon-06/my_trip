@@ -17,8 +17,8 @@ function Hero(props) {
             </p>
 
             <div className='hero-buttons'>
-                <a href='#' className='link'>Выбрать визу</a>
-                <a href='#' className='link'>Смотреть туры</a>
+                <a href='#visa-package' className='link'>Выбрать визу</a>
+                <a href='#tour-package' className='link'>Смотреть туры</a>
             </div>
         </div>
     );

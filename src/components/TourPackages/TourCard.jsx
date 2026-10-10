@@ -16,7 +16,7 @@ function TourCard(props) {
 
                 <div className='tour-bottom'>
                     <p className='tour-price'>{props.tourData.price}</p>
-                    <a href='#' className='tour-button'> → </a>
+                    <a href='#tour-package' className='tour-button'> → </a>
                 </div>
             </div>
         </div>
