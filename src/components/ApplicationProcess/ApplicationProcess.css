@@ -1,0 +1,91 @@
+#application-process {
+    padding: var(--section-y) var(--gutter);
+    background: var(--night);
+    color: var(--white);
+}
+
+.application-process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px 32px;
+}
+
+.description-application-process {
+    grid-column: 1 / -1;
+    max-width: 60ch;
+}
+
+.description-application-process h1 {
+    margin: 0 0 12px;
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+
+.description-application-process p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.step {
+    position: relative;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* золотой отрезок — «пройденный» путь */
+.step::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 48px;
+    height: 3px;
+    background: var(--gold);
+}
+
+.step h1 {
+    margin: 0 0 14px;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--gold);
+}
+
+.step h3 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+}
+
+.step p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 960px) {
+    .application-process { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+    .application-process { grid-template-columns: 1fr; gap: 36px; }
+    .step h1 { font-size: 3rem; }
+}
+
+.step::before {
+    transition: width 0.4s ease;
+}
+
+.step h1 {
+    transition: transform 0.3s ease;
+}
+
+.step:hover::before {
+    width: 100%;
+}
+
+.step:hover h1 {
+    transform: translateX(8px);
+}

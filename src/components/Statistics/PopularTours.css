@@ -1,0 +1,47 @@
+.popular-tour {
+    margin-bottom: 24px;
+}
+
+.popular-tour:last-child {
+    margin-bottom: 0;
+}
+
+.popular-tour-info {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.popular-tour-info h2 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.popular-tour-info p {
+    margin: 0;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--gold-deep);
+}
+
+.popular-tour-bar {
+    height: 10px;
+    overflow: hidden;
+    background: #e4ebef;
+    border-radius: 999px;
+}
+
+.popular-tour-progress {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 999px;
+    transform-origin: left center;
+    animation: bar-grow 0.9s ease-out both;
+}
+
+@keyframes bar-grow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}

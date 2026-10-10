@@ -1,0 +1,91 @@
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: min(82vh, 720px);
+    padding: 96px var(--gutter) 120px;
+    overflow: hidden;
+    color: var(--white);
+    /* закатное свечение над горизонтом */
+    background:
+        radial-gradient(120% 70% at 50% 115%, rgba(217, 164, 65, 0.6) 0%, rgba(217, 164, 65, 0) 60%),
+        linear-gradient(180deg, var(--night) 0%, #14465c 100%);
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: var(--gold);
+}
+
+.hero h1 {
+    margin: 0 0 24px;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+}
+
+.hero p {
+    margin: 0;
+    max-width: 52ch;
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 36px;
+}
+
+.hero-buttons .link {
+    display: inline-block;
+    padding: 14px 28px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid var(--gold);
+    border-radius: 999px;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.hero-buttons .link:first-child {
+    background: var(--gold);
+    color: var(--ink);
+}
+
+.hero-buttons .link:first-child:hover {
+    background: #e6b758;
+    border-color: #e6b758;
+}
+
+.hero-buttons .link:hover {
+    transform: translateY(-3px);
+}
+
+.hero-buttons .link:first-child:hover {
+    box-shadow: 0 10px 24px rgba(217, 164, 65, 0.4);
+}
+
+.hero-buttons .link:last-child {
+    background: transparent;
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.hero-buttons .link:last-child:hover {
+    border-color: var(--white);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 720px) {
+    .hero { padding-top: 64px; padding-bottom: 88px; }
+    .hero-buttons .link { flex: 1 1 100%; text-align: center; }
+}

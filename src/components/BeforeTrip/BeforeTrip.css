@@ -1,0 +1,62 @@
+.before-trip-visa {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: var(--section-y) var(--gutter);
+    background: var(--white);
+}
+
+.before-visa,
+.before-trip {
+    padding: 36px;
+    background: var(--bg);
+    border-radius: var(--radius);
+    box-shadow: inset 0 4px 0 var(--gold);
+}
+
+.before-trip {
+    box-shadow: inset 0 4px 0 var(--sea);
+}
+
+.before-visa h1,
+.before-trip h1 {
+    margin: 0 0 24px;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    line-height: 1.2;
+}
+
+.before-visa p,
+.before-trip p {
+    position: relative;
+    margin: 0 0 14px;
+    padding-left: 34px;
+}
+
+.before-visa p:last-child,
+.before-trip p:last-child {
+    margin-bottom: 0;
+}
+
+.before-visa p::before,
+.before-trip p::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--white);
+    background: var(--night);
+    border-radius: 50%;
+}
+
+@media (max-width: 860px) {
+    .before-trip-visa { grid-template-columns: 1fr; }
+    .before-visa, .before-trip { padding: 28px; }
+}

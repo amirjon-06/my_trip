@@ -1,0 +1,33 @@
+#statistics {
+    background: var(--bg);
+}
+
+.statistics-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-top: 40px;
+}
+
+.statistics {
+    display: flex;
+    flex-direction: column;
+}
+
+.popular-tours {
+    padding: 32px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+}
+
+.popular-tours h1 {
+    margin: 0 0 28px;
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+}
+
+@media (max-width: 860px) {
+    .statistics-container { grid-template-columns: 1fr; gap: 32px; }
+}
