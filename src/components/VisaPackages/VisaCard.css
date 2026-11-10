@@ -1,10 +1,17 @@
 .visa-card {
+    position: relative;
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 32px;
     background: var(--white);
     border: 1px solid var(--line);
     border-radius: var(--radius);
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .visa-card img {
@@ -13,7 +20,7 @@
     margin-bottom: 20px;
 }
 
-.visa-card h1 {
+.visa-card h2 {
     margin: 0 0 4px;
     font-family: var(--font-display);
     font-size: 1.35rem;
@@ -35,7 +42,7 @@
     color: var(--night);
 }
 
-.visa-card h1 + p {
+.visa-card h2 + p {
     margin-bottom: 28px;
     font-weight: 600;
 }
@@ -57,3 +64,23 @@
 .visa-card:hover img {
     transform: scale(1.12) rotate(-4deg);
 }
+
+.visa-card:focus-visible,
+.tour-card:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+}
+
+.visa-card-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    margin-top: 18px;
+    border-top: 1px solid var(--line);
+    font-size: .9rem;
+    font-weight: 700;
+    color: var(--sea);
+}
+
+.visa-card-cta span { font-size: 1.2rem; }

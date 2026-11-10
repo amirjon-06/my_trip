@@ -1,15 +1,15 @@
 import React from 'react';
-
 import './VisaCard.css';
 
-function VisaCard(props) {
+function VisaCard({ visaData, onOpen }) {
     return (
-        <div className='visa-card'>
-            <img src={props.visaData.img} alt='Visa Avatar' />
-            <h1>{props.visaData.title}</h1>
-            <p>{props.visaData.days}</p>
-            <p>{props.visaData.price}</p>
-        </div>
+        <button type='button' className='visa-card' onClick={() => onOpen(visaData)} aria-label={`Подробнее: ${visaData.title} ${visaData.days}`}>
+            <img src={visaData.img} alt='' />
+            <h2>{visaData.title}</h2>
+            <p>{visaData.days}</p>
+            <p>{visaData.price}</p>
+            <span className='visa-card-cta'>Подробнее <span aria-hidden='true'>↗</span></span>
+        </button>
     );
 }
 

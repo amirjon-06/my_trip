@@ -1,25 +1,29 @@
 import React from 'react';
-
 import './TourCard.css';
 
-function TourCard(props) {
+function TourCard({ tourData, onOpen }) {
+    const openWithKeyboard = (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            onOpen(tourData);
+        }
+    };
+
     return (
-        <div className='tour-card'>
+        <article className='tour-card' onClick={() => onOpen(tourData)} onKeyDown={openWithKeyboard} role='button' tabIndex={0} aria-label={`Подробнее: ${tourData.title}`}>
             <div className='tour-image'>
-                <img src={props.tourData.img} alt={props.tourData.title} />
-                <span className='tour-days'>{props.tourData.days}</span>
+                <img src={tourData.img} alt={tourData.title} />
+                <span className='tour-days'>{tourData.days}</span>
             </div>
-
             <div className='tour-info'>
-                <h1>{props.tourData.title}</h1>
-                <p className='tour-description'>{props.tourData.description}</p>
-
+                <h2>{tourData.title}</h2>
+                <p className='tour-description'>{tourData.description}</p>
                 <div className='tour-bottom'>
-                    <p className='tour-price'>{props.tourData.price}</p>
-                    <a href='#tour-package' className='tour-button'> → </a>
+                    <p className='tour-price'>{tourData.price}</p>
+                    <span className='tour-button' aria-hidden='true'>↗</span>
                 </div>
             </div>
-        </div>
+        </article>
     );
 }
 

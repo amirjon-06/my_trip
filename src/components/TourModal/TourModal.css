@@ -1,0 +1,268 @@
+.tour-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(12, 42, 58, 0.62);
+    backdrop-filter: blur(4px);
+    animation: tour-modal-fade 0.25s ease both;
+}
+
+.tour-modal {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    width: 100%;
+    max-width: 880px;
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    animation: tour-modal-rise 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.tour-modal:focus {
+    outline: none;
+}
+
+/* кнопка закрытия */
+.tour-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0 0 3px;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--ink);
+    background: var(--white);
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 4px 14px rgba(12, 42, 58, 0.18);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.3s;
+}
+
+.tour-modal-close:hover {
+    background: var(--gold);
+    transform: rotate(90deg);
+}
+
+/* картинка */
+.tour-modal-image {
+    position: relative;
+    min-height: 340px;
+    background: var(--bg);
+}
+
+.tour-modal-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tour-modal-days {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 5px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--night);
+    border-radius: 999px;
+}
+
+/* содержимое */
+.tour-modal-content {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 36px 36px;
+}
+
+.tour-modal-content h2 {
+    margin: 0 0 10px;
+    padding-right: 36px;
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    line-height: 1.15;
+}
+
+.tour-modal-eyebrow {
+    margin-bottom: 8px;
+    color: var(--sea);
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.tour-modal-description {
+    margin: 0 0 24px;
+    color: var(--muted);
+}
+
+.tour-modal-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 0;
+    margin-bottom: 24px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.tour-modal-price span {
+    color: var(--muted);
+}
+
+.tour-modal-price strong {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--night);
+}
+
+/* форма */
+.tour-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tour-modal-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.tour-modal-form input {
+    padding: 12px 14px;
+    font: inherit;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.tour-modal-form input::placeholder {
+    color: #9aa8b2;
+}
+
+.tour-modal-form input:focus {
+    outline: none;
+    border-color: var(--sea);
+    box-shadow: 0 0 0 3px rgba(22, 96, 122, 0.18);
+}
+
+.tour-modal-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+    padding: 14px 24px;
+    font: inherit;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--gold);
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.tour-modal-submit:hover {
+    background: #e6b758;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(217, 164, 65, 0.4);
+}
+
+.tour-modal-submit:focus-visible { outline-offset: 4px; }
+
+/* после отправки */
+.tour-modal-success {
+    padding: 22px;
+    background: var(--bg);
+    border-radius: 16px;
+    animation: tour-modal-fade 0.3s ease both;
+}
+
+.tour-modal-success h3 {
+    margin: 0 0 6px;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+}
+
+.tour-modal-success p {
+    margin: 0 0 16px;
+    color: var(--muted);
+}
+
+.tour-modal-success .tour-modal-submit {
+    margin-top: 0;
+    width: 100%;
+}
+
+/* анимации */
+@keyframes tour-modal-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes tour-modal-rise {
+    from { opacity: 0; transform: translateY(24px) scale(0.98); }
+    to { opacity: 1; transform: none; }
+}
+
+@keyframes tour-modal-sheet {
+    from { transform: translateY(100%); }
+    to { transform: none; }
+}
+
+/* телефон: модалка выезжает снизу */
+@media (max-width: 720px) {
+    .tour-modal-overlay {
+        align-items: flex-end;
+        padding: 0;
+    }
+
+    .tour-modal {
+        grid-template-columns: 1fr;
+        max-width: none;
+        max-height: 92vh;
+        max-height: 92dvh;
+        border-radius: var(--radius) var(--radius) 0 0;
+        animation-name: tour-modal-sheet;
+    }
+
+    .tour-modal-image {
+        min-height: 0;
+        height: 180px;
+    }
+
+    .tour-modal-content {
+        padding: 24px 20px 28px;
+    }
+
+    .tour-modal-content h2 {
+        padding-right: 0;
+        font-size: 1.6rem;
+    }
+}

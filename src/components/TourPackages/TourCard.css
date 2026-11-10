@@ -1,3 +1,124 @@
+/* .tour-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 20px rgba(12, 42, 58, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.tour-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow: 0 18px 36px rgba(12, 42, 58, 0.16);
+}
+
+.tour-image {
+    position: relative;
+    flex: 0 0 160px;
+    height: 160px;
+    overflow: hidden;
+    background: var(--bg);
+}
+
+.tour-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.tour-card:hover .tour-image img {
+    transform: scale(1.08);
+}
+
+.tour-days {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--night);
+    border-radius: 999px;
+}
+
+.tour-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+}
+
+.tour-info h1 {
+    margin: 0 0 6px;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    line-height: 1.25;
+}
+
+.tour-info h2 {
+    margin: 0 0 6px;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    line-height: 1.25;
+}
+
+.tour-description {
+    margin: 0 0 20px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tour-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.tour-bottom .tour-price {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--night);
+}
+
+.tour-button {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 1.1rem;
+    line-height: 1;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: 50%;
+    transition: background 0.25s, color 0.25s, transform 0.25s;
+}
+
+.tour-card:hover .tour-button {
+    background: var(--night);
+    color: var(--white);
+}
+
+.tour-button:hover {
+    transform: translateX(4px);
+} */
+
+
 .tour-card {
     display: flex;
     flex-direction: column;
@@ -15,6 +136,7 @@
     box-shadow: 0 18px 36px rgba(12, 42, 58, 0.16);
 }
 
+/* фиксированный размер картинки */
 .tour-image {
     position: relative;
     flex: 0 0 160px;
@@ -102,6 +224,7 @@
     transition: background 0.25s, color 0.25s, transform 0.25s;
 }
 
+/* при наведении на карточку кнопка темнеет, при наведении на неё — сдвигается */
 .tour-card:hover .tour-button {
     background: var(--night);
     color: var(--white);
@@ -109,4 +232,16 @@
 
 .tour-button:hover {
     transform: translateX(4px);
+}
+
+/* карточка открывает модалку */
+.tour-card {
+    cursor: pointer;
+}
+
+/* стрелка теперь <button>, а не <a> */
+.tour-button {
+    border: 0;
+    font-family: inherit;
+    cursor: pointer;
 }

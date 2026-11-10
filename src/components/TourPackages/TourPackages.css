@@ -1,39 +1,15 @@
 #tour-packages {
     background: var(--white);
 }
+
 .tour-packages {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
     margin-top: 32px;
     padding: 14px 4px 28px;
-    overflow-x: auto;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--gold) var(--bg);
-}
-
-.tour-packages::-webkit-scrollbar {
-    height: 8px;
-}
-
-.tour-packages::-webkit-scrollbar-track {
-    background: var(--bg);
-    border-radius: 999px;
-}
-
-.tour-packages::-webkit-scrollbar-thumb {
-    background: var(--gold);
-    border-radius: 999px;
 }
 
 .tour-packages > .tour-card {
-    flex: 0 0 280px;
-    scroll-snap-align: start;
-}
-
-@media (max-width: 480px) {
-    .tour-packages > .tour-card {
-        flex-basis: 250px;
-    }
+    min-width: 0;
 }
