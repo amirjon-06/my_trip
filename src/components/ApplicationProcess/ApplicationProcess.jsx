@@ -1,40 +1,18 @@
 import React from 'react';
 
-import './ApplicationProcess.css';
+const steps = [
+    ['Find your fit', 'Choose a 30-, 60- or 90-day tourist visa.'],
+    ['Say hello', 'Share your name and phone in the inquiry form.'],
+    ['Send your documents', 'We confirm requirements and payment on WhatsApp.'],
+    ['Check your inbox', 'Receive your visa by email, usually in 2–4 days.']
+];
 
-function ApplicationProcess(props) {
+function ApplicationProcess() {
     return (
-        <section id='application-process'>
-            <div className='application-process'>
-                <div className='description-application-process'>
-                    <h1>Путь от заявки до визы</h1>
-                    <p>Четыре шага. Вы заполняете форму один раз — дальше делаем мы.</p>
-                </div>
-        
-                <div className='step'>
-                    <h1>1</h1>
-                    <h3>Visa Dubai</h3>
-                    <p>Выбираете тип визы и заполняете анкету на сайте</p>
-                </div>
-        
-                <div className='step'>
-                    <h1>2</h1>
-                    <h3>Тур-пакет</h3>
-                    <p>При желании добавляете отель и трансфер к визе</p>
-                </div>
-        
-                <div className='step'>
-                    <h1>3</h1>
-                    <h3>Проверка документов</h3>
-                    <p>Наш специалист проверяет анкету и подаёт её в визовый центр</p>
-                </div>
-        
-                <div className='step'>
-                    <h1>4</h1>
-                    <h3>Виза готова</h3>
-                    <p>Получаете визу на почту и можете бронировать билеты</p>
-                </div>
-            </div>
+        <section className='section process reveal' id='application-process' aria-labelledby='process-title'>
+            <p className='section-kicker'>02 / SIMPLE FROM THE START</p>
+            <h2 id='process-title'>From “let’s go” to ready to fly.</h2>
+            <ol className='process-steps'>{steps.map(([title, description], i) => <li key={title}><span className='step-number'>0{i + 1}</span><h3>{title}</h3><p>{description}</p></li>)}</ol>
         </section>
     );
 }

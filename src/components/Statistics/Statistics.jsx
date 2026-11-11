@@ -1,83 +1,27 @@
 import React from 'react';
-
 import StatCard from './StatCard';
 import PopularTours from './PopularTours';
 
-import './Statistics.css';
+const statistics = [
+    { id: 1, value: '2.4k+', title: 'journeys planned' },
+    { id: 2, value: '98%', title: 'happy travelers' }
+];
+const destinations = [
+    { title: 'Downtown Dubai', percent: 42 }, { title: 'Arabian Desert', percent: 31 },
+    { title: 'Dubai Marina', percent: 18 }, { title: 'Old Dubai', percent: 9 }
+];
 
-function Statistics(props) {
-    const statistics = [
-        {
-            id: 1,
-            value: '1234',
-            title: 'Запрос на визу'
-        },
-        {
-            id: 2,
-            value: '5678',
-            title: 'Тур-пакетов оформлено'
-        },
-        {
-            id: 3,
-            value: '1230',
-            title: 'Успешность оформления виз'
-        }
-    ]
-
-    const popular_tours = [
-        {
-            title: 'Dubai',
-            sold: '352'
-        },
-        {
-            title: 'Paris',
-            sold: '289'
-        },
-        {
-            title: 'New York',
-            sold: '198'
-        },
-        {
-            title: 'Tokyo',
-            sold: '145'
-        },
-        {
-            title: 'London',
-            sold: '123'
-        },
-        {
-            title: 'Sydney',
-            sold: '98'
-        }
-    ]
-
-    popular_tours.sort((a, b) => b.sold - a.sold);
-
-    const maxSold = Number(popular_tours[0].sold);
-
+function Statistics() {
     return (
-        <section id='statistics'>
-            <h1>Статистика</h1>
-            
-            <div className='statistics-container'>
-                <div className='statistics'>
-                    {statistics.map((el) => (
-                        <StatCard key={el.id} statData={el} />
-                    ))}
+        <section className='statistics-section reveal' id='statistics' aria-labelledby='statistics-title'>
+            <div className='stats-inner'>
+                <div className='stats-overview'>
+                    <p className='section-kicker'>04 / A LITTLE PERSPECTIVE</p>
+                    <h2 id='statistics-title'>Small details.<br />Big journeys.</h2>
+                    <div className='stat-list'>{statistics.map((stat) => <StatCard key={stat.id} statData={stat} />)}</div>
+                    <p className='stats-disclaimer'>Illustrative service figures · not live or verified</p>
                 </div>
-                
-                <div className='popular-tours'>
-                    <h1>Популярные туры</h1>
-                    {popular_tours.slice(0, 3).map((el, index) =>(
-                        <PopularTours
-                            key={index}
-                            tourData={{
-                                ...el,
-                                percent: (Number(el.sold) / maxSold) * 100
-                            }}
-                        />
-                    ))}
-                </div>
+                <div className='destinations'><h3>Where everyone’s heading</h3>{destinations.map((destination, i) => <PopularTours key={destination.title} tourData={{ ...destination, index: i + 1 }} />)}</div>
             </div>
         </section>
     );

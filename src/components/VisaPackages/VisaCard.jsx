@@ -1,15 +1,18 @@
 import React from 'react';
-import './VisaCard.css';
 
-function VisaCard({ visaData, onOpen }) {
+function VisaCard({ visaData, index, onOpen }) {
     return (
-        <button type='button' className='visa-card' onClick={() => onOpen(visaData)} aria-label={`Подробнее: ${visaData.title} ${visaData.days}`}>
-            <img src={visaData.img} alt='' />
-            <h2>{visaData.title}</h2>
-            <p>{visaData.days}</p>
-            <p>{visaData.price}</p>
-            <span className='visa-card-cta'>Подробнее <span aria-hidden='true'>↗</span></span>
-        </button>
+        <article className='visa-card'>
+            <p className='card-label'>TOURIST VISA <span>0{index + 1}</span></p>
+            <h3>{visaData.days}</h3>
+            <p className='visa-description'>{visaData.description}</p>
+            <strong className='visa-price'>{visaData.price}</strong>
+            <small className='visa-unit'>per person · single entry</small>
+            <ul className='visa-includes'>
+                <li>Processing in 2–4 days</li><li>Digital visa by email</li><li>Personal application support</li>
+            </ul>
+            <button className='button primary card-button' type='button' onClick={() => onOpen(visaData)}>Choose this visa <span aria-hidden='true'>↗</span></button>
+        </article>
     );
 }
 

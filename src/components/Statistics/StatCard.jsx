@@ -1,14 +1,7 @@
 import React from 'react';
 
-import './StatCard.css';
-
-function StatCard(props) {
-    return (
-        <div className='stat-card'>
-            <h1>{props.statData.value}</h1>
-            <p>{props.statData.title}</p>
-        </div>
-    );
+function StatCard({ statData }) {
+    return <div className='stat'><strong>{statData.value}</strong><p>{statData.title}</p></div>;
 }
 
 export default StatCard;
