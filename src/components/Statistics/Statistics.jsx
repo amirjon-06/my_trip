@@ -4,11 +4,11 @@ import PopularTours from './PopularTours';
 import { useT } from '../../i18n';
 
 const statistics = [
-    { id: 1, value: '2.4k+' },
+    { id: 1, value: '2.4K' },
     { id: 2, value: '98%' },
 ];
-const destinations = [42, 31, 18, 9];
 
+const destinations = [42, 31, 18, 9];
 function Statistics() {
     const t = useT('stats');
     const titleLines = t[1].split('\n');

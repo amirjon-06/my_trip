@@ -236,7 +236,7 @@ h1, h2, h3, p, figure { margin: 0; }
 .modal-preview { width: 100%; }
 @keyframes overlay-fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes modal-fade-in { from { opacity: 0; transform: translateY(14px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes modal-slide-up { from { opacity: 0; transform: translateY(100%); } to { opacity: 1; transform: translateY(0); } }
+@keyframes modal-slide-up { from { opacity: 0; transform: translateY(48px); } to { opacity: 1; transform: translateY(0); } }
 
 /* Reveal / motion */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
@@ -323,6 +323,6 @@ h1, h2, h3, p, figure { margin: 0; }
     .footer-main nav, .footer-contacts { gap: 12px; }
     .footer-bottom { flex-direction: column; gap: 8px; }
     .modal-overlay { align-items: end; justify-items: center; padding: 0; }
-    .modal { width: min(100%, 390px); max-height: 94dvh; min-height: 0; margin: 0 auto; padding: 24px 24px max(24px, env(safe-area-inset-bottom)); border-radius: 24px 24px 0 0; animation: modal-slide-up .36s cubic-bezier(.2,.7,.25,1) both; }
+    .modal { width: min(100%, 390px); max-height: 94dvh; min-height: 0; margin: 0 auto; padding: 24px 24px max(24px, env(safe-area-inset-bottom)); border-radius: 24px 24px 0 0; animation: modal-slide-up .65s cubic-bezier(.22,.75,.25,1) both; }
     .modal h2 { font-size: 28px; }
 }
