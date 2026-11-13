@@ -12,7 +12,10 @@ import ScrollBeam from './components/ScrollBeam/ScrollBeam';
 import { LanguageContext } from './i18n';
 
 function App() {
-    const [lang, setLang] = useState(() => ['tj','ru','en'].includes(window.localStorage.getItem('my-trip-language')) ? window.localStorage.getItem('my-trip-language') : 'en');
+    const [lang, setLang] = useState(() => {
+        const savedLanguage = window.localStorage.getItem('my-trip-language');
+        return ['tj', 'ru', 'en'].includes(savedLanguage) ? savedLanguage : 'en';
+    });
     const [generalInquiryOpen, setGeneralInquiryOpen] = useState(false);
     const [theme, setTheme] = useState(() => {
         const saved = window.localStorage.getItem('my-trip-theme');
@@ -26,7 +29,10 @@ function App() {
         document.documentElement.style.colorScheme = theme;
         window.localStorage.setItem('my-trip-theme', theme);
     }, [theme]);
-    useEffect(() => { window.localStorage.setItem('my-trip-language', lang); document.documentElement.lang = lang; }, [lang]);
+    useEffect(() => {
+        window.localStorage.setItem('my-trip-language', lang);
+        document.documentElement.lang = lang;
+    }, [lang]);
 
     useEffect(() => {
         if (!('IntersectionObserver' in window)) {
@@ -46,18 +52,30 @@ function App() {
     }, []);
 
     return (
-      <LanguageContext.Provider value={{lang, setLang}}><div className='app-shell' id='page-scroll-area'>
-            <Header theme={theme} setTheme={setTheme} onInquiry={() => setGeneralInquiryOpen(true)} />
-            <Hero />
-            <VisaPackages />
-            <ApplicationProcess />
-            <TourPackages />
-            <Statistics />
-            <BeforeTrip />
-            <Footer theme={theme} />
-            {generalInquiryOpen && <TourModal tour={{ title: 'Trip planning inquiry', price: 'Let’s talk', description: 'Tell us a little about your Dubai plans and continue the conversation on WhatsApp.', kind: 'inquiry' }} onClose={() => setGeneralInquiryOpen(false)} />}
-            <ScrollBeam />
-        </div></LanguageContext.Provider>
+        <LanguageContext.Provider value={{ lang, setLang }}>
+            <div className='app-shell' id='page-scroll-area'>
+                <Header theme={theme} setTheme={setTheme} onInquiry={() => setGeneralInquiryOpen(true)} />
+                <Hero />
+                <VisaPackages />
+                <ApplicationProcess />
+                <TourPackages />
+                <Statistics />
+                <BeforeTrip />
+                <Footer theme={theme} />
+                {generalInquiryOpen && (
+                    <TourModal
+                        tour={{
+                            title: 'Trip planning inquiry',
+                            price: 'Let’s talk',
+                            description: 'Tell us a little about your Dubai plans and continue the conversation on WhatsApp.',
+                            kind: 'inquiry',
+                        }}
+                        onClose={() => setGeneralInquiryOpen(false)}
+                    />
+                )}
+                <ScrollBeam />
+            </div>
+        </LanguageContext.Provider>
     );
 }
 

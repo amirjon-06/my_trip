@@ -77,10 +77,24 @@ function ScrollBeam() {
             aria-valuemax={100}
             aria-valuenow={Math.round(position.progress * 100)}
             tabIndex={0}
-            onPointerDown={(event) => { event.preventDefault(); dragging.current = true; event.currentTarget.setPointerCapture(event.pointerId); seekAt(event.clientY); }}
-            onPointerMove={(event) => { if (dragging.current) seekAt(event.clientY); }}
-            onPointerUp={(event) => { dragging.current = false; if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId); }}
-            onPointerCancel={() => { dragging.current = false; }}
+            onPointerDown={(event) => {
+                event.preventDefault();
+                dragging.current = true;
+                event.currentTarget.setPointerCapture(event.pointerId);
+                seekAt(event.clientY);
+            }}
+            onPointerMove={(event) => {
+                if (dragging.current) seekAt(event.clientY);
+            }}
+            onPointerUp={(event) => {
+                dragging.current = false;
+                if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+                    event.currentTarget.releasePointerCapture(event.pointerId);
+                }
+            }}
+            onPointerCancel={() => {
+                dragging.current = false;
+            }}
             onKeyDown={handleKeyDown}
         >
             <span className='scroll-beam-thumb' style={{ top: `${top}px`, height: `${position.height}px` }} />

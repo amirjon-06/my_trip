@@ -162,7 +162,6 @@ h1, h2, h3, p, figure { margin: 0; }
 .tour-image { position: relative; display: block; width: 100%; height: 224px; padding: 0; overflow: hidden; background: var(--soft); border: 0; cursor: pointer; }
 .tour-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s; }
 .tour-image:hover img { transform: scale(1.04); }
-.tour-image > span { position: absolute; right: 16px; bottom: 16px; display: grid; place-items: center; width: 40px; height: 40px; color: var(--ink); background: var(--surface); border-radius: 50%; font-size: 18px; }
 .tour-copy { display: flex; flex: 1; flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; }
 .tour-copy .card-label { font-size: 12px; }
 .tour-copy h3 { font-size: 24px; font-weight: 700; line-height: 1.45; }
